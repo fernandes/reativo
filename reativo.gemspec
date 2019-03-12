@@ -26,6 +26,23 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", "~> 5.2.2"
+  spec.add_dependency "cells-erb", "~> 0.1"
+  spec.add_dependency "cells-rails", "~> 0.0"
+  spec.add_dependency "cuid", "~> 1.0"
+  spec.add_dependency "devise", "~> 4.6"
+  spec.add_dependency "friendly_id", "~> 5.2"
+  spec.add_dependency "jsonb_accessor", "~> 1.0"
+  spec.add_dependency "jwt", "~> 2.1"
+  spec.add_dependency "multi_json", "~> 1.13"
+  spec.add_dependency "react-rails", "~> 2.4"
+  spec.add_dependency "reform-rails", "~> 0.2.0.rc1"
+  spec.add_dependency "reform", "~> 2.3.0.rc1"
+  spec.add_dependency "rolify", "~> 5.2"
+  spec.add_dependency "trailblazer-cells", "~> 0.0"
+  spec.add_dependency "trailblazer-rails", "~> 2.1"
+  spec.add_dependency "trailblazer", "~> 2.1.0.rc1"
+  spec.add_dependency "turbolinks", "~> 5"
+  spec.add_dependency "webpacker", "~> 4.0"
 
   spec.add_development_dependency "pg"
 end

@@ -13,3 +13,6 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+gem 'cuid'                   , '~> 1.0', github: 'fernandes/cuid'
+gem 'reform'                 , '~> 2.3.0.rc1', github: 'trailblazer/reform'
+gem 'reform-rails'           , '~> 0.2.0.rc1', github: 'trailblazer/reform-rails'
