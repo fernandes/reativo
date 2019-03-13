@@ -5,11 +5,6 @@ module Reativo::Cell
     include Webpacker::Helper
     include React::Rails::ViewHelper
 
-    def show(&block)
-      variation = context.fetch(:layout_variation, :default)
-      render variation, &block
-    end
-
     def protect_against_forgery?
       context[:controller].send(:protect_against_forgery?)
     end
