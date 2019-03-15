@@ -33,7 +33,7 @@ PATH
       jsonb_accessor (~> 1.0)
       jwt (~> 2.1)
       multi_json (~> 1.13)
-      rails (~> 5.2.2)
+      rails (~> 5)
       react-rails (~> 2.4)
       reform (~> 2.3.0.rc1)
       reform-rails (~> 0.2.0.rc1)
