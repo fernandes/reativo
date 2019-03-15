@@ -38,11 +38,11 @@ PATH
       reform (~> 2)
       reform-rails (~> 0.2.0.rc1)
       rolify (~> 5)
-      trailblazer (~> 2.0)
+      trailblazer (~> 2)
       trailblazer-cells (~> 0.0)
-      trailblazer-rails (~> 2.1)
+      trailblazer-rails (~> 2)
       turbolinks (~> 5)
-      webpacker (~> 4.0)
+      webpacker (~> 4)
 
 GEM
   remote: https://rubygems.org/
