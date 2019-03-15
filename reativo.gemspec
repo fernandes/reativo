@@ -39,10 +39,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency "reform", "~> 2"
   spec.add_dependency "rolify", "~> 5"
   spec.add_dependency "trailblazer-cells", "~> 0.0"
-  spec.add_dependency "trailblazer-rails", "~> 1"
-  spec.add_dependency "trailblazer", "~> 2"
   spec.add_dependency "turbolinks", "~> 5"
   spec.add_dependency "webpacker", "~> 4"
-
+  
   spec.add_development_dependency "pg"
+  spec.add_development_dependency "trailblazer-rails", "~> 2"
+  spec.add_development_dependency "trailblazer", "~> 2.1.0.rc1"
 end
