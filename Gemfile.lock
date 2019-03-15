@@ -38,9 +38,9 @@ PATH
       reform (~> 2.3.0.rc1)
       reform-rails (~> 0.2.0.rc1)
       rolify (~> 5.2)
-      trailblazer (~> 2.1.0.rc1)
+      trailblazer (~> 2.0)
       trailblazer-cells (~> 0.0)
-      trailblazer-rails (~> 2.0)
+      trailblazer-rails (~> 2.1)
       turbolinks (~> 5)
       webpacker (~> 4.0)
 
