@@ -40,7 +40,7 @@ PATH
       rolify (~> 5.2)
       trailblazer (~> 2.1.0.rc1)
       trailblazer-cells (~> 0.0)
-      trailblazer-rails (~> 2.1)
+      trailblazer-rails (~> 2.0)
       turbolinks (~> 5)
       webpacker (~> 4.0)
 
