@@ -1,5 +1,5 @@
 module Reativo
-  class CrudController < ApplicationController
+  class CrudController < ::Reativo::ApplicationController
     def index
       run index_op
 
