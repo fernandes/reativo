@@ -1,0 +1,9 @@
+module <%= class_name %>::Representer
+  module <%= model_name %>Module
+    include Reform::Form::Module
+
+    <%- options[:properties].each do |property| -%>
+    <%= property_attribute(property) %>
+    <%- end -%>
+  end
+end

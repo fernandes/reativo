@@ -1,0 +1,10 @@
+module <%= class_name %>::Representer
+  module Index
+    include Representable::JSON::Collection
+
+    items class: <%= model_name %> do
+      include Representable::JSON
+      include <%= model_name %>Module
+    end
+  end
+end
