@@ -35,10 +35,10 @@ module Reativo
         run index_op
 
         respond_to do |format|
-          format.html { component(index_compo, model: result[:model]) }
+          format.html { component(index_compo, model: result_model) }
           format.json {
             json = Rails.cache.fetch("api/#{result[:cache_key]}", expires_in: 12.hours) do
-              result[:model].extend(result['representer.render.class']).to_json
+              result_model.extend(result['representer.render.class']).to_json
             end
             render json: json
           }
@@ -48,7 +48,7 @@ module Reativo
       def show
         run show_op
         respond_to do |format|
-          decorated_model = result[:model] ? result[:model].extend(result['representer.render.class']) : nil
+          decorated_model = result_model ? result_model.extend(result['representer.render.class']) : nil
           format.html { component(show_compo, model: (decorated_model ? decorated_model.to_hash : nil)) }
           format.json {
             json = Rails.cache.fetch("api/#{result[:cache_key]}", expires_in: 12.hours) do
@@ -68,7 +68,7 @@ module Reativo
       def edit
         run edit_op
 
-        decorated_model = result[:model] ? result[:model].extend(result['representer.render.class']) : nil
+        decorated_model = result_model ? result_model.extend(result['representer.render.class']) : nil
         component(edit_compo, model: decorated_model ? decorated_model.to_hash : nil)
       end
 
@@ -78,11 +78,11 @@ module Reativo
         respond_to do |format|
           if result.success?
             flash[:notice] = "#{model_name} was successfully created."
-            format.html { redirect_to result[:model], notice: "#{model_name} was successfully created." }
-            format.json { render json: result[:model].extend(result['representer.render.class']).to_json, status: :created }
+            format.html { redirect_to result_model, notice: "#{model_name} was successfully created." }
+            format.json { render json: result_model.extend(result['representer.render.class']).to_json, status: :created }
           else
             format.html { component(new_compo) }
-            format.json { render json: result[:model].errors, status: :unprocessable_entity }
+            format.json { render json: result_model.errors, status: :unprocessable_entity }
           end
         end
       end
@@ -92,11 +92,11 @@ module Reativo
 
         respond_to do |format|
           if result.success?
-            format.html { redirect_to result[:model], notice: "#{model_name} was successfully updated." }
-            format.json { render json: result[:model].extend(result['representer.render.class']).to_json }
+            format.html { redirect_to result_model, notice: "#{model_name} was successfully updated." }
+            format.json { render json: result_model.extend(result['representer.render.class']).to_json }
           else
             format.html {
-              decorated_model = result[:model] ? result[:model].extend(result['representer.render.class']) : nil
+              decorated_model = result_model ? result_model.extend(result['representer.render.class']) : nil
               component(edit_compo, model: decorated_model ? decorated_model.to_hash : nil)
             }
             format.json { render json: result["representer.errors.class"].new(result["result.contract.default"].errors.messages).to_json, status: :unprocessable_entity }
@@ -116,6 +116,10 @@ module Reativo
       private
         def result
           @_result
+        end
+
+        def result_model
+          result[:model]
         end
 
         def index_op
