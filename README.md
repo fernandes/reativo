@@ -18,6 +18,15 @@ Add this line to your application's Gemfile:
 gem 'reativo'
 ```
 
+To use our npm package, also run:
+
+```bash
+yarn add reativo
+npm install --save reativo
+```
+
+It has some [peerDependencies](https://github.com/fernandes/reativo/blob/d78b9ab4d88930178fd55267dfed2f32cb2ff2d2/reativo_js/package.json#L17-L31), check this out.
+
 ## Usage
 
 The basic usage is include the concern on your controller and set the layout component.
