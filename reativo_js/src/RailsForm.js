@@ -1,5 +1,6 @@
-import React from 'react';
+import React from 'react'
 import axios from 'axios'
+import 'babel-polyfill'
 
 function RailsForm({component, render, method, url, validate, action, initialValues, successUrl}) {
   const onSubmit = async values => {
