@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2019-03-26
+### Added
+- [JS] Add babel-polyfill
+
+### Changed
+- [JS] Revert the @babel/plugin-transform-generator
+
+### Removed
+- [JS] Remove (finally) the dummy `Hello` component
+
 ## [0.1.2] - 2019-03-26
 ### Added
 - [JS] Add @babel/plugin-transform-regenerator as dev dependency
@@ -22,7 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Generator
 - Reativo Crud Controller
 
-[Unreleased]: https://github.com/fernandes/reativo/compare/v0.1.2...HEAD
-[0.1.1]: https://github.com/fernandes/reativo/compare/v0.1.1...v0.1.2
+[Unreleased]: https://github.com/fernandes/reativo/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/fernandes/reativo/compare/v0.1.2...v0.1.3
+[0.1.2]: https://github.com/fernandes/reativo/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/fernandes/reativo/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/fernandes/reativo/releases/tag/v0.1.1
