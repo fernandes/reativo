@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@babel/plugin-transform-regenerator": "^7.4.0"
+  }
+}
