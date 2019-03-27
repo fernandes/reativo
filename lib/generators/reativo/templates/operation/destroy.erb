@@ -1,12 +1,12 @@
 module <%= class_name %>::Operation
-  class Create < Trailblazer::Operation
+  class Destroy < Trailblazer::Operation
     step ->(options, params) { options["representer.render.class"] = <%= class_name %>::Representer::Create }
     step ->(options, params) { options["representer.errors.class"] = Reativo::Representer::Errors }
     step Model( <%= model_name %>, :find )
     step :destroy!
 
     def destroy!(ctx, params:, current_user:, **)
-      options[:model].destroy
+      ctx[:model].destroy
     end
   end
 end
