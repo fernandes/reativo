@@ -13,11 +13,15 @@
     "type": "git",
     "url": "https://github.com/fernandes/reativo.git"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@date-io/date-fns": "^1.1.0",
     "@material-ui/core": "^3",
     "@material-ui/icons": "^3",
     "axios": "^0.18.0",
+    "date-fns": "^1.30.1",
+    "date-fns-timezone": "^0.1.4",
     "final-form": "^4.12.0",
+    "material-ui-pickers": "^2.2.4",
     "notistack": "0.5.0",
     "react": "^16",
     "react-dom": "^16",

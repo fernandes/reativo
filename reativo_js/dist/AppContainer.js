@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Provider } from 'react-redux';
 import { SnackbarProvider, withSnackbar } from 'notistack';
 import { createMuiTheme } from '@material-ui/core/styles';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 let theme = null;
 
 class ErrorBoundary extends React.Component {
@@ -47,13 +49,15 @@ const AppContainer = ({ ...props
     theme = createMuiTheme({});
   }
 
-  return React.createElement(MuiThemeProvider, {
+  return React.createElement(MuiPickersUtilsProvider, {
+    utils: DateFnsUtils
+  }, React.createElement(MuiThemeProvider, {
     theme: theme
   }, React.createElement(Provider, {
     store: window.store
   }, React.createElement(SnackbarProvider, {
     maxSnack: 3
-  }, Component)));
+  }, Component))));
 };
 
 const wrapper = (component, mapStateToProps = null, mapDispatchToProps = null) => {

@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { Provider } from 'react-redux'
 import { SnackbarProvider, withSnackbar } from 'notistack'
 import { createMuiTheme } from '@material-ui/core/styles'
+import DateFnsUtils from '@date-io/date-fns'
+import { MuiPickersUtilsProvider } from 'material-ui-pickers'
 
 let theme = null;
 
@@ -41,13 +43,15 @@ const AppContainer = ({...props}) => {
   }
 
   return (
-    <MuiThemeProvider theme={theme}>
-      <Provider store={window.store}>
-        <SnackbarProvider maxSnack={3}>
-          {Component}
-        </SnackbarProvider>
-      </Provider>
-    </MuiThemeProvider>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <MuiThemeProvider theme={theme}>
+        <Provider store={window.store}>
+          <SnackbarProvider maxSnack={3}>
+            {Component}
+          </SnackbarProvider>
+        </Provider>
+      </MuiThemeProvider>
+    </MuiPickersUtilsProvider>
   );
 }
 

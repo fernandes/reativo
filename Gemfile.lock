@@ -25,18 +25,18 @@ PATH
   remote: .
   specs:
     reativo (0.1.0)
-      cells-erb (~> 0.1)
-      cells-rails (~> 0.0)
-      multi_json (~> 1)
-      rails (~> 5)
-      react-rails (~> 2)
-      reform (~> 2)
-      reform-rails (~> 0.2.0.rc1)
-      trailblazer (~> 2)
-      trailblazer-cells (~> 0.0)
-      trailblazer-rails (~> 2)
-      turbolinks (~> 5)
-      webpacker (~> 4)
+      cells-erb
+      cells-rails (> 0.0)
+      multi_json (> 1)
+      rails (> 5)
+      react-rails (> 2)
+      reform (> 2)
+      reform-rails
+      trailblazer (> 2)
+      trailblazer-cells (> 0.0)
+      trailblazer-rails (> 1)
+      turbolinks (> 5)
+      webpacker (> 4)
 
 GEM
   remote: https://rubygems.org/
@@ -135,7 +135,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     nio4r (2.3.1)
-    nokogiri (1.10.1)
+    nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
     rack (2.0.6)
@@ -234,6 +234,8 @@ DEPENDENCIES
   reativo!
   reform (~> 2.3.0.rc1)!
   reform-rails (~> 0.2.0.rc1)!
+  trailblazer (~> 2.1.0.rc1)
+  trailblazer-rails (~> 2)
 
 BUNDLED WITH
    2.0.1

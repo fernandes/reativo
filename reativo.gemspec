@@ -16,18 +16,18 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  spec.add_dependency "rails", "~> 5"
-  spec.add_dependency "cells-erb", "~> 0.1"
-  spec.add_dependency "cells-rails", "~> 0.0"
-  spec.add_dependency "multi_json", "~> 1"
-  spec.add_dependency "react-rails", "~> 2"
-  spec.add_dependency "reform-rails", "~> 0.2.0.rc1"
-  spec.add_dependency "reform", "~> 2"
-  spec.add_dependency "trailblazer-cells", "~> 0.0"
-  spec.add_dependency "trailblazer-rails", "~> 2"
-  spec.add_dependency "trailblazer", "~> 2"
-  spec.add_dependency "turbolinks", "~> 5"
-  spec.add_dependency "webpacker", "~> 4"
+  spec.add_dependency "rails", "> 5"
+  spec.add_dependency "cells-erb"
+  spec.add_dependency "cells-rails", "> 0.0"
+  spec.add_dependency "multi_json", "> 1"
+  spec.add_dependency "react-rails", "> 2"
+  spec.add_dependency "reform-rails"
+  spec.add_dependency "reform", "> 2"
+  spec.add_dependency "trailblazer-cells", "> 0.0"
+  spec.add_dependency "trailblazer-rails", "> 1"
+  spec.add_dependency "trailblazer", "> 2"
+  spec.add_dependency "turbolinks", "> 5"
+  spec.add_dependency "webpacker", "> 4"
   
   spec.add_development_dependency "pg"
 end
