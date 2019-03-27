@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Button from '@material-ui/core/Button'
 import { hot } from 'react-hot-loader/root'
 import { withStyles } from '@material-ui/core/styles';
-import appWrapper from "../../support/AppContainer"
+import { wrapper } from "reativo"
 import Menu from "./Menu"
 
 const styles = theme => ({
@@ -47,7 +47,7 @@ function mapDispatchToProps (dispatch) {
 
 export default hot(
   withStyles(styles)(
-    appWrapper(Drawer, mapStateToProps, mapDispatchToProps)
+    wrapper(Drawer, mapStateToProps, mapDispatchToProps)
   )
 )
 

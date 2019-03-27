@@ -9,7 +9,7 @@ import LabelIcon from '@material-ui/icons/LabelImportant'
 import DescriptionIcon from '@material-ui/icons/Description'
 
 import { hot } from 'react-hot-loader/root'
-import appWrapper from "../../support/AppContainer"
+import { wrapper } from "reativo"
 
 
 const styles = theme => ({
@@ -78,5 +78,5 @@ const mapStateToProps = state => {
 }
 
 export default hot(withStyles(styles)(
-  appWrapper(SimpleList, mapStateToProps)
+  wrapper(SimpleList, mapStateToProps)
 ))

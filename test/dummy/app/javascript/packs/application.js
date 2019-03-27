@@ -23,3 +23,7 @@ ReactRailsUJS.useContext(componentRequireContext)
 
 import store from '../src/store'
 window.store = store
+
+import theme from '../src/theme'
+import { setTheme } from 'reativo'
+setTheme(theme)

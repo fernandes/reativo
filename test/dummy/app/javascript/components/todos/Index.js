@@ -2,7 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root'
 import MaterialTable from 'material-table'
 import Button from '@material-ui/core/Button'
-import appWrapper from "../../support/AppContainer"
+import { wrapper } from "reativo"
 
 function Index({model, rows}) {
   return (
@@ -82,5 +82,5 @@ function Index({model, rows}) {
 }
 
 export default hot(
-  appWrapper(Index)
+  wrapper(Index)
 )

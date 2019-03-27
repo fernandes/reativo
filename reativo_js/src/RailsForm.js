@@ -1,8 +1,7 @@
 import React from 'react';
-import { Form } from 'react-final-form';
 import axios from 'axios'
 
-function RailsForm({render, method, url, validate, action, initialValues, successUrl}) {
+function RailsForm({component, render, method, url, validate, action, initialValues, successUrl}) {
   const onSubmit = async values => {
     let form_method = ''
     if (method === undefined) {
@@ -27,8 +26,10 @@ function RailsForm({render, method, url, validate, action, initialValues, succes
     .catch(function(error) {console.log('boom!', error)})
   };
 
+  const Component = component;
+
   return (
-    <Form
+    <Component
       onSubmit={onSubmit}
       validate={validate}
       initialValues={initialValues}
@@ -39,4 +40,4 @@ function RailsForm({render, method, url, validate, action, initialValues, succes
   );
 }
 
-export default RailsForm;
+export { RailsForm }

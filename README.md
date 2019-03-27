@@ -42,6 +42,74 @@ def result_model
 end
 ```
 
+### Snackbar
+
+Reativo comes with a Snackbar based on [notistack](https://github.com/iamhosseindhv/notistack), if you'd like to use, create your own Snackbar, based on the library's one, like this:
+
+```js
+import React from 'react';
+import { Snackbar as SnackbarOriginal } from "reativo"
+
+function Snackbar({messages}) {
+  return <SnackbarOriginal messages={messages} />
+}
+
+export default Snackbar
+```
+
+This is needed so the Notistack Context works correctly.
+
+## JS
+
+Reativo now bundles with a JS library! (this is my first one, so if you try and it's broken, please, don't blame me hahah)
+
+The most complete example would be a form, that uses the `AppContainer`, and the `RailsForm` classes:
+
+```js
+import { hot } from 'react-hot-loader/root'
+import { wrapper, RailsForm } from "reativo"
+import { Form as FinalForm } from 'react-final-form'
+import Form from './Form'
+
+function New() {
+  return (
+    <div style={{ padding: 16, margin: 'auto', maxWidth: 600 }}>
+      <RailsForm
+        component={FinalForm}
+        action='create'
+        url='/todos'
+        render={(props) => (
+          <Form {...props} />
+        )}
+      />
+    </div>
+  )
+}
+
+export default hot(
+  wrapper(New)
+)
+```
+
+And to use a redux store and your own theme, don't forget to do the following on your pack:
+
+```js
+import store from '../src/store' // this is a normal redux store, check
+// https://github.com/fernandes/reativo/blob/master/test/dummy/app/javascript/src/store.js
+// for an example
+window.store = store
+// and keep on window.store, so during page changes (using Turbolinks), we don't loose
+// the state of our store
+// now that we have our own JS library, maybe this can change in the future
+
+import theme from '../src/theme' // this is a normal, Material UI theme, check
+// https://github.com/fernandes/reativo/blob/master/test/dummy/app/javascript/src/theme.js
+// for an example
+
+import { setTheme } from 'reativo'
+setTheme(theme)
+```
+
 ## Generator
 
 It comes with a generator for Trailblazer, so, yeah!, you can generate the operations, contracts and representers!

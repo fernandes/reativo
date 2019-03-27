@@ -4,7 +4,7 @@ import {
   Button,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root'
-import appWrapper from "../../support/AppContainer"
+import { wrapper } from "reativo"
 
 function Show({model}) {
   const { title, completed } = model
@@ -24,5 +24,5 @@ function Show({model}) {
 }
 
 export default hot(
-  appWrapper(Show)
+  wrapper(Show)
 );

@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { withSnackbar } from 'notistack'
-import appWrapper from "../support/AppContainer"
+import { wrapper } from "./AppContainer"
 
-class Snackbar extends React.Component {
+class Snackbarz extends React.Component {
   componentWillMount() {
     this.props.messages.map(message => {
       this.props.enqueueSnackbar(message.title)
@@ -15,4 +15,6 @@ class Snackbar extends React.Component {
   }
 }
 
-export default appWrapper(withSnackbar(Snackbar))
+const Snackbar = wrapper(withSnackbar(Snackbarz))
+
+export { Snackbar }

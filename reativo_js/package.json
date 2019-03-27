@@ -1,0 +1,47 @@
+{
+  "name": "reativo",
+  "version": "0.1.0",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "babel": {
+    "presets": [
+      "@babel/react"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fernandes/reativo.git"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3",
+    "@material-ui/icons": "^3",
+    "axios": "^0.18.0",
+    "final-form": "^4.12.0",
+    "notistack": "0.5.0",
+    "react": "^16",
+    "react-dom": "^16",
+    "react-final-form": "^4.1.0",
+    "react-redux": "^6",
+    "redux": "^4",
+    "typeface-roboto": "^0"
+  },
+  "scripts": {
+    "publish:npm": "export NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src --out-dir dist --copy-files"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5"
+  }
+}

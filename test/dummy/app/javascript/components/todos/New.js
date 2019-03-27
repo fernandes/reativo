@@ -4,8 +4,8 @@ import {
   Button,
 } from '@material-ui/core';
 import { hot } from 'react-hot-loader/root'
-import appWrapper from "../../support/AppContainer"
-import RailsForm from '../../support/RailsForm'
+import { wrapper, RailsForm } from "reativo"
+import { Form as FinalForm } from 'react-final-form'
 import Form from './Form'
 import { validate } from './Form'
 
@@ -16,6 +16,7 @@ function New() {
         New Todo
       </Typography>
       <RailsForm
+        component={FinalForm}
         action='create'
         url='/todos'
         validate={validate}
@@ -31,5 +32,5 @@ function New() {
 }
 
 export default hot(
-  appWrapper(New)
+  wrapper(New)
 );

@@ -1,9 +1,11 @@
 import React from 'react';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { theme } from "./Theme"
 import { connect } from 'react-redux'
 import { Provider } from 'react-redux'
-import { SnackbarProvider } from 'notistack'
+import { SnackbarProvider, withSnackbar } from 'notistack'
+import { createMuiTheme } from '@material-ui/core/styles'
+
+let theme = null;
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -34,20 +36,22 @@ class ErrorBoundary extends React.Component {
 
 const AppContainer = ({...props}) => {
   const Component = React.createElement(props.children, {...props})
+  if(theme === null) {
+    theme = createMuiTheme({})
+  }
+
   return (
-    <ErrorBoundary>
-      <MuiThemeProvider theme={theme}>
+    <MuiThemeProvider theme={theme}>
+      <Provider store={window.store}>
         <SnackbarProvider maxSnack={3}>
-          <Provider store={window.store}>
-            {Component}
-          </Provider>
+          {Component}
         </SnackbarProvider>
-      </MuiThemeProvider>
-    </ErrorBoundary>
+      </Provider>
+    </MuiThemeProvider>
   );
 }
 
-const appWrapper = (component, mapStateToProps = null, mapDispatchToProps = null) => {
+const wrapper = (component, mapStateToProps = null, mapDispatchToProps = null) => {
   const ConnectedComponent = connect(
     mapStateToProps,
     mapDispatchToProps,
@@ -58,4 +62,8 @@ const appWrapper = (component, mapStateToProps = null, mapDispatchToProps = null
   );
 }
 
-export default appWrapper;
+const setTheme = (userTheme) => {
+  theme = userTheme
+}
+
+export { wrapper, setTheme, withSnackbar }

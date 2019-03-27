@@ -7,3 +7,4 @@ test/dummy/yarn-error.log
 test/dummy/storage/
 test/dummy/tmp/
 test/dummy/public/packs
+reativo_js/node_modules

@@ -16,7 +16,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import appWrapper from "../../support/AppContainer"
+import { wrapper } from "reativo"
 import { hot } from 'react-hot-loader/root'
 
 const styles = theme => ({
@@ -219,6 +219,6 @@ PrimarySearchAppBar.propTypes = {
 
 export default hot(
   withStyles(styles)(
-    appWrapper(PrimarySearchAppBar)
+    wrapper(PrimarySearchAppBar)
   )
 );
