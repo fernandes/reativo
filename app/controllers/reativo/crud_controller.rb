@@ -6,6 +6,10 @@ module Reativo
       def theme_cell
         raise Exception.new('Please specify your theme cell here')
       end
+
+      def _run_options(options)
+        options.merge( "current_user" => self.try(:current_user) )
+      end
     
       def trb(cell_constant, model, options: {}, rails_options: {})
         render(

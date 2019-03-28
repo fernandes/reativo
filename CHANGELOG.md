@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - [JS] React Select with Auto Complete
+- Crud Controller merges current_user into trailblazer run options
 
 ### Fixed
 - Crud Controller calls right operations new (Create::Present), and edit (Update::Present)
