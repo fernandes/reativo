@@ -119,6 +119,35 @@ import { setTheme } from 'reativo'
 setTheme(theme)
 ```
 
+### Auto Complete
+
+The JS library comes with a material-ui ready to use select using auto complete
+
+I'm not sure if a trailblazer operation / macro could help here... thoughts?
+
+```js
+const loadOptions = (inputValue, callback) => {
+  axios.get(`/todos.json?q=${inputValue}`)
+  .then(function (response) {
+    const results = response.data.map(x => {
+      return { value: x.id, label: x.title}
+    })
+    callback(results)
+  })
+}
+
+const handleChange = (value) => {
+  console.log('Auto Compete Selected: ', value)
+}
+
+import { SelectAutoComplete } from 'reativo'
+
+<SelectAutoComplete
+  loadOptions={loadOptions}
+  handleChange={this.handleChange}
+/>
+```
+
 ## Generator
 
 It comes with a generator for Trailblazer, so, yeah!, you can generate the operations, contracts and representers!
