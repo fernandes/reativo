@@ -15,7 +15,8 @@ module <%= class_name %>::Operation
     step :cache_key!
 
     def scope!(ctx, params:, current_user:, **)
-      ctx[:scope] = <%= class_name.singularize %>.where(user: current_user).order(id: :asc)
+      # Change the scope, so avoid data leaking
+      ctx[:scope] = <%= model_name.singularize %>.where('created_at > ?', DateTime.current)
     end
 
     def model!(ctx, params:, current_user:, **)
