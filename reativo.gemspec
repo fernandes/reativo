@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "webpacker", "> 4"
   
   spec.add_development_dependency "pg"
+  spec.add_development_dependency "pry"
 end

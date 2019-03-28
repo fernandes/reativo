@@ -1,5 +1,5 @@
 module <%= class_name %>::Representer
-  module <%= model_name %>Module
+  module <%= model_name.demodulize %>Module
     include Reform::Form::Module
 
     <%- options[:properties].each do |property| -%>

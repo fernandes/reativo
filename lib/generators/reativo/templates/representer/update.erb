@@ -1,6 +1,6 @@
 module <%= class_name %>::Representer
   module Update
     include Representable::JSON
-    include <%= model_name %>Module
+    include <%= model_name.demodulize %>Module
   end
 end

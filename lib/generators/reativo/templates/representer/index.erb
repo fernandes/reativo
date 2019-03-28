@@ -4,7 +4,7 @@ module <%= class_name %>::Representer
 
     items class: <%= model_name %> do
       include Representable::JSON
-      include <%= model_name %>Module
+      include <%= model_name.demodulize %>Module
     end
   end
 end

@@ -9,7 +9,7 @@ module <%= class_name %>::Operation
 
     step Nested( Present )
     step Contract::Build(constant: <%= class_name %>::Contract::Update)
-    step Contract::Validate(key: '<%= model_name.underscore %>')
+    step Contract::Validate(key: '<%= model_name.demodulize.underscore %>')
     step Contract::Persist()
   end
 end
