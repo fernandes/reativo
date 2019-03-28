@@ -60,8 +60,11 @@ module Reativo
       end
 
       def new
+        run new_op
+
+        decorated_model = result_model ? result_model.extend(result['representer.render.class']) : nil
         respond_to do |format|
-          format.html { component(new_compo) }
+          format.html { component(new_compo, model: decorated_model ? decorated_model.to_hash : nil) }
         end
       end
 
@@ -142,12 +145,16 @@ module Reativo
           action_op('create')
         end
       
+        def new_op
+          present_op("create")
+        end
+
         def new_compo
           action_compo('new')
         end
       
         def edit_op
-          action_op("edit")
+          present_op("update")
         end
       
         def edit_compo
@@ -164,6 +171,10 @@ module Reativo
       
         def action_op(action)
           "#{collection_name}::Operation::#{action.camelize}".constantize
+        end
+
+        def present_op(action)
+          "#{collection_name}::Operation::#{action.camelize}::Present".constantize
         end
       
         def action_compo(action)

@@ -1,14 +1,13 @@
 module <%= class_name %>::Operation
   class Create < Trailblazer::Operation
     class Present < Trailblazer::Operation
+      step ->(options, params) { options["representer.render.class"] = <%= class_name %>::Representer::Create }
+      step ->(options, params) { options["representer.errors.class"] = Reativo::Representer::Errors }
       step Model(<%= model_name %>, :new)
       step Contract::Build( constant: <%= class_name %>::Contract::Create )
     end
 
-    step ->(options, params) { options["representer.render.class"] = <%= class_name %>::Representer::Create }
-    step ->(options, params) { options["representer.errors.class"] = Reativo::Representer::Errors }
     step Nested( Present )
-
     step Contract::Build(constant: <%= class_name %>::Contract::Create)
     step Contract::Validate(key: '<%= model_name.underscore %>')
     step Contract::Persist()
