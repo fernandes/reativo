@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- jss-insertion-point -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reativo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="turbolinks-cache-control" content="no-cache">
+    <%= stylesheet_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <style>
+      body {
+        background-color: white;
+      }
+      #side-nav {
+        position: fixed;
+        width: 256px;
+        height: calc(100vh - 64px);
+        left: 0;
+        right: 0;
+        overflow-y: auto;
+        top: 64px;
+      }
+
+      #content-wrapper {
+        margin: 70px 0 0 256px;
+        padding: 0 30px;
+        overflow-y: auto;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: calc(100vh - 64px);
+        width: calc(100% - 256px);
+      }
+      </style>
+
+      <%= react_component("theme/Snackbar", messages: flash_messages) %>
+      <%= react_component("theme/Baseline") %>
+      <%= react_component("theme/MainBar") %>
+      <div id="container" style="width: 100%;">
+        <div id="side-nav">
+          <%= react_component("theme/Drawer") %>
+        </div>
+        <div id="content-wrapper">
+          <%= yield %>
+        </div>
+      </div>
+  </body>
+</html>

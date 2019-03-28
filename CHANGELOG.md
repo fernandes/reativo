@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [JS] React Select with Auto Complete
 - Crud Controller merges current_user into trailblazer run options
 - Now there are two generators reativo:op reativo:js
+- Install Generator
 
 ### Fixed
 - Crud Controller calls right operations new (Create::Present), and edit (Update::Present)
