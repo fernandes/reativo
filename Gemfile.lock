@@ -24,7 +24,7 @@ GIT
 PATH
   remote: .
   specs:
-    reativo (0.1.4)
+    reativo (0.1.5)
       cells-erb
       cells-rails (> 0.0)
       multi_json (> 1)
