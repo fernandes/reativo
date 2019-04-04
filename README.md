@@ -162,6 +162,15 @@ And check the [usage](https://github.com/fernandes/reativo/blob/master/lib/gener
 
 Please, help contributing, try to fix more than you break and world will be a better place! 😉
 
+## Releasing
+
+- [ ] Bump rails version
+- [ ] Update Gemfile.lock
+- [ ] Bump package.json version
+- [ ] Edit CHANGELOG
+- [ ] Commit
+- [ ] Publish (rake release && npm publish:npm && npm publish)
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
