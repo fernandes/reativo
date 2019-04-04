@@ -84,8 +84,7 @@ module Reativo
 
         respond_to do |format|
           if result.success?
-            flash[:notice] = "#{model_name} was successfully created."
-            format.html { redirect_to result_model, notice: "#{model_name} was successfully created." }
+            format.html {redirect_to result_model, notice: "#{model_name} was successfully created." }
             format.json { render json: result_model.extend(result['representer.render.class']).to_json, status: :created }
           else
             format.html { component(new_compo) }
