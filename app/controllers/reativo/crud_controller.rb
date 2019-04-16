@@ -8,9 +8,9 @@ module Reativo
       end
 
       def _run_options(options)
-        options.merge( "current_user" => self.try(:current_user) )
+        options.merge( current_user: self.try(:current_user) )
       end
-    
+
       def trb(cell_constant, model, options: {}, rails_options: {})
         render(
           {
@@ -25,7 +25,7 @@ module Reativo
           }.merge(rails_options)
         )
       end
-    
+
       def component(component, options: {}, rails_options: {}, **props)
         component_options = options.merge!(
           context: _run_options({
@@ -39,10 +39,11 @@ module Reativo
         run index_op
 
         respond_to do |format|
-          format.html { component(index_compo, model: result_model) }
+          decorated_model = result_model ? result_model.extend(result['representer.render.class']) : nil
+          format.html { component(index_compo, model: model: (decorated_model ? decorated_model.to_hash : nil)) }
           format.json {
             json = Rails.cache.fetch("api/#{result[:cache_key]}", expires_in: 12.hours) do
-              result_model.extend(result['representer.render.class']).to_json
+              decorated_model ? decorated_model.to_json : nil
             end
             render json: json
           }
@@ -131,23 +132,23 @@ module Reativo
         def index_op
           action_op('index')
         end
-      
+
         def index_compo
           action_compo('index')
         end
-      
+
         def show_op
           action_op('show')
         end
-      
+
         def show_compo
           action_compo('show')
         end
-      
+
         def create_op
           action_op('create')
         end
-      
+
         def new_op
           present_op("create")
         end
@@ -155,23 +156,23 @@ module Reativo
         def new_compo
           action_compo('new')
         end
-      
+
         def edit_op
           present_op("update")
         end
-      
+
         def edit_compo
           action_compo('edit')
         end
-      
+
         def update_op
           action_op('update')
         end
-        
+
         def destroy_op
           action_op('destroy')
         end
-      
+
         def action_op(action)
           "#{collection_name}::Operation::#{action.camelize}".constantize
         end
@@ -179,15 +180,15 @@ module Reativo
         def present_op(action)
           "#{collection_name}::Operation::#{action.camelize}::Present".constantize
         end
-      
+
         def action_compo(action)
           "#{collection_name.underscore}/#{action.camelize}"
         end
-      
+
         def model_name
           collection_name.singularize
         end
-      
+
         def collection_name
           self.class.to_s.gsub!(/Controller$/, '')
         end
