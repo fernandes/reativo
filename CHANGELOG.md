@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Remove warnings from typography theme when user don't set a theme
+
 ## [0.1.5] - 2019-04-04
 ### Fixed
 - Do not set flash notice for json format
@@ -40,7 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - JS Library, now releases will be sync
 
-### Changed 
+### Changed
 - Dependencies are much more flexible
 
 ## [0.1.0] - 2019-03-26
