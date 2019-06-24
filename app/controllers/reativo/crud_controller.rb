@@ -39,10 +39,11 @@ module Reativo
         run index_op
 
         respond_to do |format|
-          format.html { component(index_compo, model: result_model) }
+          decorated_model = result_model ? result_model.extend(result['representer.render.class']) : nil
+          format.html { component(index_compo, model: (decorated_model ? decorated_model.to_hash : nil)) }
           format.json {
             json = Rails.cache.fetch("api/#{result[:cache_key]}", expires_in: 12.hours) do
-              result_model.extend(result['representer.render.class']).to_json
+              decorated_model ? decorated_model.to_json : nil
             end
             render json: json
           }
