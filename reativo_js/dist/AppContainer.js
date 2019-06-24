@@ -46,7 +46,11 @@ const AppContainer = ({ ...props
   });
 
   if (theme === null) {
-    theme = createMuiTheme({});
+    theme = createMuiTheme({
+      typography: {
+        useNextVariants: true,
+      }
+    });
   }
 
   return React.createElement(MuiPickersUtilsProvider, {

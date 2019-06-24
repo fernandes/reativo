@@ -32,14 +32,18 @@ class ErrorBoundary extends React.Component {
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 
 const AppContainer = ({...props}) => {
   const Component = React.createElement(props.children, {...props})
   if(theme === null) {
-    theme = createMuiTheme({})
+    theme = createMuiTheme({
+      typography: {
+        useNextVariants: true,
+      }
+    })
   }
 
   return (
